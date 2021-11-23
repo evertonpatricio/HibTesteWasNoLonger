@@ -1,0 +1,10 @@
+package exceptions;
+
+public class UsuarioExistenteException extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	public UsuarioExistenteException(String msg) {
+		super(msg);
+	}
+}

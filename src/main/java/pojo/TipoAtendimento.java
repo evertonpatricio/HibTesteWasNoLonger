@@ -1,0 +1,142 @@
+package pojo;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+@Entity
+public class TipoAtendimento implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Long id;
+	private String descricao;
+	private boolean mesa;
+	private boolean ocupado;
+	private boolean inativo;
+	private String nomeUsuario;
+	private Date dataInativacao;
+	private Date horaInativacao;
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "tipo_atendimentoid_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "tipo_atendimentoid_seq", sequenceName = "tipo_atendimentoid_seq", allocationSize = 1)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column(name = "descricao", length = 30)
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@Column(name = "ocupado")
+	public boolean isOcupado() {
+		return ocupado;
+	}
+
+	public void setOcupado(boolean ocupado) {
+		this.ocupado = ocupado;
+	}
+
+	@Transient
+	public boolean isNovo() {
+		return getId() == null;
+	}
+
+	@Transient
+	public boolean isExistente() {
+		return !isNovo();
+	}
+
+	@Column(name = "mesa")
+	public boolean isMesa() {
+		return mesa;
+	}
+
+	public void setMesa(boolean mesa) {
+		this.mesa = mesa;
+	}
+
+	@Column(name = "inativo")
+	public boolean isInativo() {
+		return inativo;
+	}
+
+	public void setInativo(boolean inativo) {
+		this.inativo = inativo;
+	}
+
+	@Column(name = "nome_usuario")
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_inativacao")
+	public Date getDataInativacao() {
+		return dataInativacao;
+	}
+
+	public void setDataInativacao(Date dataInativacao) {
+		this.dataInativacao = dataInativacao;
+	}
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "hora_inativacao")
+	public Date getHoraInativacao() {
+		return horaInativacao;
+	}
+
+	public void setHoraInativacao(Date horaInativacao) {
+		this.horaInativacao = horaInativacao;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof TipoAtendimento))
+			return false;
+		TipoAtendimento other = (TipoAtendimento) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+}

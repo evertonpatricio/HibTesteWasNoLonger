@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="HibernateWas-PU" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/HibernateWasDS</jta-data-source>
+
+        <shared-cache-mode>ALL</shared-cache-mode>
+
+        <validation-mode>CALLBACK</validation-mode>
+
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action"
+                      value="none"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <property name="hibernate.show_sql" value="true" />
+            <!--   <property name="hibernate.format_sql" value="true" />  -->
+            
+            <property name="hibernate.cache.region.factory_class" value="infinispan"/>
+            <property name="hibernate.javax.cache.uri"
+                      value="org/infinispan/hibernate/cache/commons/builder/infinispan-configs-local.xml"/>
+            
+            
+        </properties>
+    </persistence-unit>
+</persistence>

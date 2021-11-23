@@ -1,0 +1,220 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.teste2</groupId>
+  <artifactId>HibTesteWasNoLonger</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api -->
+		<dependency>
+		  <groupId>javax</groupId>
+		  <artifactId>javaee-api</artifactId>
+		  <version>8.0</version>
+		  <scope>provided</scope>
+		</dependency>
+		
+		<!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <version>5.4.10.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>5.4.10.Final</version>
+            <scope>provided</scope>
+        </dependency>
+	
+		<!-- PostgreSql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.2-1003-jdbc4</version>
+            <scope>provided</scope>
+		</dependency>
+
+		<!-- Prime Faces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>resources-ckeditor</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>resources-codemirror</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- Dependência para elitura e escrita - classes t2ti -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
+		<!-- Dependência para File Upload Primefaces -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!-- OmniFaces (utilitarios para JSF) -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>1.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Usamos para formatar números em templates -->
+		<dependency>
+			<groupId>velocity-tools</groupId>
+			<artifactId>velocity-tools-generic</artifactId>
+			<version>1.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Spring Security 3.1 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency>
+
+		<!-- Spring Security - Renderização de componentes conforme permissão -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-faces</artifactId>
+			<version>2.4.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+		
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!--  -->
+
+		<!-- Commons Lang (utilidades) -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Relatório -->
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
+		<dependency>
+		    <groupId>net.sf.jasperreports</groupId>
+		    <artifactId>jasperreports</artifactId>
+		    <version>6.1.0</version>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+                <exclusion>
+                    <groupId>org.olap4j</groupId>
+                    <artifactId>olap4j</artifactId>
+                </exclusion>				
+			</exclusions> 
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.ini4j</groupId>
+		    <artifactId>ini4j</artifactId>
+		    <version>0.5.4</version>
+		</dependency>		
+
+	</dependencies>
+
+
+	<build>
+		<finalName>HibTesteWasNoLonger</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>14</source>
+					<target>14</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<version>3.8.1</version>
+			</plugin>
+			
+			<plugin>
+			    <groupId>org.hibernate.orm.tooling</groupId>
+			    <artifactId>hibernate-enhance-maven-plugin</artifactId>
+			    <version>5.4.10.Final</version>
+			    <executions>
+			        <execution>
+			            <configuration>
+			                <failOnError>true</failOnError>
+			                <enableLazyInitialization>true</enableLazyInitialization>
+			            </configuration>
+			            <goals>
+			                <goal>enhance</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>			
+
+		</plugins>
+	</build>
+    
+</project>
